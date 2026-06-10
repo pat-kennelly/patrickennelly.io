@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patrick Kennelly | Electrical Industry Leader & Owner of Anthony G. Ferry Inc.</title>
+  <meta name="description" content="Patrick Kennelly is a visionary electrical industry expert and owner of Anthony G. Ferry Inc. Known for championing safety, innovation, and reliable electrical solutions, Patrick leads with decades of hands-on experience and a commitment to excellence." />
+  <link rel="icon" type="image/jpeg" href="Patrick Kennelly Logo.jpg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── RESET & BASE ─────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg:       #050a14;
+      --bg2:      #080f1e;
+      --panel:    #0b1525;
+      --electric: #00d4ff;
+      --volt:     #7df9ff;
+      --accent:   #1e6fff;
+      --gold:     #f0b429;
+      --text:     #c8d8ec;
+      --white:    #e8f4ff;
+      --dim:      #5a7a9a;
+      --glow:     0 0 20px rgba(0,212,255,.45), 0 0 60px rgba(0,212,255,.15);
+      --glow-sm:  0 0 8px rgba(0,212,255,.5);
+      --radius:   6px;
+      --ff-head:  'Orbitron', monospace;
+      --ff-sub:   'Rajdhani', sans-serif;
+      --ff-body:  'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--ff-body);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── SCANLINE OVERLAY ─────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,.08) 2px,
+        rgba(0,0,0,.08) 4px
+      );
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── CURSOR GLOW ──────────────────────────────── */
+    #cursor-glow {
+      position: fixed;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,212,255,.07) 0%, transparent 70%);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9998;
+      transition: opacity .3s;
+    }
+
+    /* ── PARTICLES CANVAS ─────────────────────────── */
+    #particles {
+      position: fixed; inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── HEADER / NAV ─────────────────────────────── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(5,10,20,.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0,212,255,.15);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 70px;
+    }
+
+    .logo {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none;
+    }
+    .logo img {
+      height: 44px; width: 44px;
+      border-radius: 50%;
+      border: 2px solid var(--electric);
+      object-fit: cover;
+      box-shadow: var(--glow-sm);
+    }
+    .logo-text {
+      font-family: var(--ff-head);
+      font-size: .75rem;
+      letter-spacing: .12em;
+      color: var(--electric);
+      text-transform: uppercase;
+    }
+
+    nav { display: flex; align-items: center; gap: 4px; }
+    nav a {
+      color: var(--dim);
+      text-decoration: none;
+      font-family: var(--ff-sub);
+      font-size: .8rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      transition: all .25s;
+      white-space: nowrap;
+    }
+    nav a:hover {
+      color: var(--electric);
+      border-color: rgba(0,212,255,.3);
+      background: rgba(0,212,255,.06);
+      text-shadow: var(--glow-sm);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 6px;
+      background: none; border: none;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--electric);
+      transition: all .3s;
+    }
+
+    /* ── HERO ─────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      padding: 100px 5% 60px;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(30,111,255,.12) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 20% 80%, rgba(0,212,255,.08) 0%, transparent 60%),
+        linear-gradient(180deg, #050a14 0%, #060d1a 100%);
+      z-index: 1;
+    }
+
+    /* Grid lines */
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(0,212,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      z-index: 1;
+      animation: gridPulse 6s ease-in-out infinite;
+    }
+    @keyframes gridPulse {
+      0%,100% { opacity: .6; }
+      50% { opacity: 1; }
+    }
+
+    .hero-inner {
+      position: relative; z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .hero-text { animation: fadeSlideUp .9s ease both; }
+
+    .hero-eyebrow {
+      font-family: var(--ff-head);
+      font-size: .65rem;
+      letter-spacing: .3em;
+      color: var(--electric);
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block; width: 30px; height: 1px;
+      background: var(--electric);
+      box-shadow: var(--glow-sm);
+    }
+
+    .hero-name {
+      font-family: var(--ff-head);
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: .03em;
+      margin-bottom: 10px;
+    }
+    .hero-name span {
+      display: block;
+      background: linear-gradient(90deg, var(--electric), var(--accent), var(--volt));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+      background-size: 200% auto;
+    }
+    @keyframes shimmer {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    .hero-subtitle {
+      font-family: var(--ff-sub);
+      font-size: 1.1rem;
+      color: var(--gold);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero-desc {
+      font-size: .95rem;
+      color: var(--text);
+      max-width: 480px;
+      margin-bottom: 36px;
+      line-height: 1.8;
+    }
+
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 30px;
+      background: linear-gradient(135deg, var(--accent), var(--electric));
+      color: #fff;
+      font-family: var(--ff-sub);
+      font-size: .85rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(30,111,255,.4);
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--electric), var(--volt));
+      opacity: 0; transition: opacity .3s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,212,255,.5); }
+    .btn-primary:hover::before { opacity: 1; }
+    .btn-primary span { position: relative; z-index: 1; }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px;
+      background: transparent;
+      color: var(--electric);
+      font-family: var(--ff-sub);
+      font-size: .85rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: 1px solid rgba(0,212,255,.4);
+      transition: all .25s;
+    }
+    .btn-outline:hover {
+      background: rgba(0,212,255,.08);
+      border-color: var(--electric);
+      box-shadow: var(--glow-sm);
+    }
+
+    /* Hero image */
+    .hero-visual {
+      position: relative;
+      animation: fadeSlideUp .9s .2s ease both;
+      display: flex; justify-content: center;
+    }
+    .hero-img-frame {
+      position: relative;
+      width: 380px; max-width: 100%;
+    }
+    .hero-img-frame img {
+      width: 100%; height: 480px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid rgba(0,212,255,.2);
+      display: block;
+    }
+    .hero-img-frame::before {
+      content: '';
+      position: absolute; inset: -2px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--electric), var(--accent), transparent, var(--electric));
+      z-index: -1;
+      animation: borderSpin 6s linear infinite;
+    }
+    @keyframes borderSpin {
+      0% { opacity: .5; }
+      50% { opacity: 1; }
+      100% { opacity: .5; }
+    }
+
+    /* Corner decorations */
+    .corner {
+      position: absolute;
+      width: 20px; height: 20px;
+      border-color: var(--electric);
+      border-style: solid;
+    }
+    .corner-tl { top: -8px; left: -8px; border-width: 2px 0 0 2px; }
+    .corner-tr { top: -8px; right: -8px; border-width: 2px 2px 0 0; }
+    .corner-bl { bottom: -8px; left: -8px; border-width: 0 0 2px 2px; }
+    .corner-br { bottom: -8px; right: -8px; border-width: 0 2px 2px 0; }
+
+    .hero-badge {
+      position: absolute;
+      bottom: -20px; right: -20px;
+      background: var(--panel);
+      border: 1px solid rgba(0,212,255,.3);
+      border-radius: 10px;
+      padding: 14px 18px;
+      text-align: center;
+      box-shadow: var(--glow);
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .hero-badge .num {
+      font-family: var(--ff-head);
+      font-size: 1.6rem;
+      color: var(--electric);
+      display: block;
+    }
+    .hero-badge .lbl {
+      font-family: var(--ff-sub);
+      font-size: .7rem;
+      color: var(--dim);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    /* ── GENERAL SECTION STYLES ───────────────────── */
+    section { position: relative; z-index: 2; overflow: hidden; }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 5%;
+    }
+
+    .section-label {
+      font-family: var(--ff-head);
+      font-size: .6rem;
+      letter-spacing: .3em;
+      color: var(--electric);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: flex; align-items: center; gap: 10px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all .6s ease;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1; max-width: 60px; height: 1px;
+      background: linear-gradient(90deg, var(--electric), transparent);
+    }
+    .section-label.visible { opacity: 1; transform: none; }
+
+    .section-title {
+      font-family: var(--ff-head);
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all .6s .1s ease;
+    }
+    .section-title.visible { opacity: 1; transform: none; }
+    .section-title em {
+      font-style: normal;
+      color: var(--electric);
+    }
+
+    .section-divider {
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, var(--electric), var(--accent));
+      border-radius: 2px;
+      margin-bottom: 40px;
+      box-shadow: var(--glow-sm);
+      opacity: 0;
+      transition: opacity .6s .2s, width .6s .2s;
+    }
+    .section-divider.visible { opacity: 1; width: 80px; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── ABOUT ────────────────────────────────────── */
+    #about { background: var(--bg2); }
+    #about::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--electric), transparent);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-images {
+      position: relative;
+      height: 480px;
+    }
+    .about-img-main {
+      position: absolute;
+      top: 0; left: 0;
+      width: 75%; height: 380px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid rgba(0,212,255,.2);
+    }
+    .about-img-secondary {
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 55%; height: 240px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid rgba(30,111,255,.3);
+      box-shadow: 0 0 30px rgba(0,212,255,.15);
+    }
+    .about-tag {
+      position: absolute;
+      top: 24px; right: 0;
+      background: linear-gradient(135deg, var(--accent), var(--electric));
+      color: #fff;
+      font-family: var(--ff-head);
+      font-size: .6rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      border-radius: var(--radius);
+    }
+
+    .about-text p {
+      color: var(--text);
+      font-size: .95rem;
+      margin-bottom: 20px;
+    }
+
+    .about-text p a {
+      color: var(--electric);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,212,255,.3);
+      transition: border-color .2s;
+    }
+    .about-text p a:hover { border-color: var(--electric); }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
+      margin-top: 36px;
+    }
+    .stat-box {
+      background: var(--panel);
+      border: 1px solid rgba(0,212,255,.12);
+      border-radius: var(--radius);
+      padding: 20px 14px;
+      text-align: center;
+      transition: border-color .3s, transform .3s;
+    }
+    .stat-box:hover {
+      border-color: rgba(0,212,255,.4);
+      transform: translateY(-4px);
+    }
+    .stat-box .n {
+      font-family: var(--ff-head);
+      font-size: 1.6rem;
+      color: var(--electric);
+      display: block;
+    }
+    .stat-box .l {
+      font-family: var(--ff-sub);
+      font-size: .7rem;
+      color: var(--dim);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    /* ── WHY CHOOSE ───────────────────────────────── */
+    #why { background: var(--bg); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 24px;
+      margin-top: 50px;
+    }
+
+    .why-card {
+      background: var(--panel);
+      border: 1px solid rgba(0,212,255,.1);
+      border-radius: 10px;
+      padding: 36px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: all .3s;
+      cursor: default;
+    }
+    .why-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,212,255,.05), transparent);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .why-card:hover {
+      border-color: rgba(0,212,255,.35);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,.3), var(--glow-sm);
+    }
+    .why-card:hover::before { opacity: 1; }
+
+    .why-icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, rgba(0,212,255,.15), rgba(30,111,255,.1));
+      border: 1px solid rgba(0,212,255,.25);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      transition: box-shadow .3s;
+    }
+    .why-card:hover .why-icon { box-shadow: var(--glow); }
+
+    .why-card h3 {
+      font-family: var(--ff-head);
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 12px;
+    }
+    .why-card p {
+      font-size: .88rem;
+      color: var(--dim);
+      line-height: 1.75;
+    }
+
+    /* ── EXPERTISE ────────────────────────────────── */
+    #expertise { background: var(--bg2); }
+
+    .expertise-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .skill-bars { margin-top: 10px; }
+    .skill-row { margin-bottom: 24px; }
+    .skill-header {
+      display: flex; justify-content: space-between;
+      font-family: var(--ff-sub);
+      font-size: .85rem;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .skill-header span:last-child { color: var(--electric); }
+    .skill-track {
+      height: 6px;
+      background: rgba(255,255,255,.06);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .skill-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--electric));
+      border-radius: 3px;
+      width: 0%;
+      transition: width 1.4s cubic-bezier(.25,.8,.25,1);
+      box-shadow: 0 0 8px rgba(0,212,255,.5);
+    }
+
+    .expertise-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .exp-card {
+      background: var(--panel);
+      border: 1px solid rgba(0,212,255,.1);
+      border-radius: 10px;
+      padding: 24px 20px;
+      transition: all .3s;
+    }
+    .exp-card:hover {
+      border-color: rgba(0,212,255,.3);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,.25);
+    }
+    .exp-card .icon { font-size: 1.6rem; margin-bottom: 10px; }
+    .exp-card h4 {
+      font-family: var(--ff-sub);
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .exp-card p {
+      font-size: .82rem;
+      color: var(--dim);
+      line-height: 1.7;
+    }
+
+    /* ── QUOTE ────────────────────────────────────── */
+    #quote {
+      background: var(--bg);
+      text-align: center;
+    }
+    #quote::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(0,212,255,.05) 0%, transparent 65%);
+    }
+
+    .quote-content {
+      position: relative; z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 100px 5%;
+    }
+
+    .quote-mark {
+      font-family: var(--ff-head);
+      font-size: 5rem;
+      color: var(--electric);
+      opacity: .2;
+      line-height: .6;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    blockquote {
+      font-family: var(--ff-sub);
+      font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1.5;
+      letter-spacing: .02em;
+      margin-bottom: 28px;
+    }
+    blockquote em {
+      font-style: normal;
+      color: var(--electric);
+    }
+
+    .quote-author {
+      font-family: var(--ff-head);
+      font-size: .7rem;
+      letter-spacing: .2em;
+      color: var(--dim);
+      text-transform: uppercase;
+    }
+
+    /* ── MISSION & VISION ─────────────────────────── */
+    #mission { background: var(--bg2); }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 50px;
+    }
+
+    .mv-panel {
+      background: var(--panel);
+      border: 1px solid rgba(0,212,255,.12);
+      border-radius: 12px;
+      padding: 44px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: all .3s;
+    }
+    .mv-panel::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      border-radius: 12px 12px 0 0;
+    }
+    .mv-panel.mission-p::after { background: linear-gradient(90deg, var(--accent), var(--electric)); }
+    .mv-panel.vision-p::after { background: linear-gradient(90deg, var(--gold), #f97316); }
+    .mv-panel:hover {
+      border-color: rgba(0,212,255,.25);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0,0,0,.3);
+    }
+
+    .mv-icon {
+      font-size: 2.2rem;
+      margin-bottom: 18px;
+      display: block;
+    }
+    .mv-panel h3 {
+      font-family: var(--ff-head);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 16px;
+    }
+    .mv-panel p {
+      font-size: .93rem;
+      color: var(--text);
+      line-height: 1.8;
+    }
+    .mv-panel ul {
+      margin-top: 16px;
+      padding-left: 0;
+      list-style: none;
+    }
+    .mv-panel ul li {
+      font-size: .88rem;
+      color: var(--dim);
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .mv-panel ul li::before {
+      content: '▸';
+      color: var(--electric);
+      font-size: .7rem;
+    }
+
+    .mission-image {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 16px;
+    }
+    .mission-image img {
+      width: 100%; height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid rgba(0,212,255,.12);
+      transition: all .3s;
+    }
+    .mission-image img:hover {
+      border-color: rgba(0,212,255,.4);
+      transform: scale(1.02);
+      box-shadow: 0 10px 30px rgba(0,0,0,.3);
+    }
+
+    /* ── FOOTER ───────────────────────────────────── */
+    footer {
+      background: #020609;
+      border-top: 1px solid rgba(0,212,255,.1);
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 5% 30px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 60px;
+      margin-bottom: 50px;
+    }
+
+    .footer-brand .logo { margin-bottom: 16px; }
+    .footer-brand p {
+      font-size: .85rem;
+      color: var(--dim);
+      line-height: 1.7;
+      max-width: 240px;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 30px;
+    }
+    .footer-col h4 {
+      font-family: var(--ff-head);
+      font-size: .65rem;
+      letter-spacing: .2em;
+      color: var(--electric);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block;
+      color: var(--dim);
+      text-decoration: none;
+      font-size: .85rem;
+      margin-bottom: 8px;
+      transition: color .2s;
+    }
+    .footer-col a:hover { color: var(--electric); }
+
+    .footer-nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .footer-nav a {
+      color: var(--dim);
+      text-decoration: none;
+      font-family: var(--ff-sub);
+      font-size: .75rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border: 1px solid rgba(0,212,255,.12);
+      border-radius: 4px;
+      transition: all .2s;
+    }
+    .footer-nav a:hover {
+      color: var(--electric);
+      border-color: rgba(0,212,255,.35);
+    }
+
+    .footer-social {
+      display: flex; gap: 10px; margin-top: 12px;
+    }
+    .social-btn {
+      width: 38px; height: 38px;
+      border-radius: 8px;
+      border: 1px solid rgba(0,212,255,.2);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      font-size: .9rem;
+      color: var(--dim);
+      transition: all .25s;
+    }
+    .social-btn:hover {
+      border-color: var(--electric);
+      color: var(--electric);
+      box-shadow: var(--glow-sm);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.05);
+      padding-top: 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-bottom p {
+      font-size: .78rem;
+      color: var(--dim);
+    }
+    .footer-bottom a {
+      color: var(--electric);
+      text-decoration: none;
+    }
+
+    /* ── ANIMATIONS ───────────────────────────────── */
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Glitch on hover for section titles */
+    .glitch-hover {
+      position: relative;
+    }
+    .glitch-hover:hover::before, .glitch-hover:hover::after {
+      content: attr(data-text);
+      position: absolute; top: 0; left: 0;
+      color: var(--white);
+      font: inherit;
+    }
+    .glitch-hover:hover::before {
+      text-shadow: 2px 0 var(--electric);
+      clip: rect(0,900px,0,0);
+      animation: glitch1 .3s steps(2,end) infinite;
+    }
+    .glitch-hover:hover::after {
+      text-shadow: -2px 0 var(--accent);
+      clip: rect(0,900px,0,0);
+      animation: glitch2 .3s steps(2,end) infinite .1s;
+    }
+    @keyframes glitch1 {
+      0%,100% { clip: rect(40px,9999px,50px,0); }
+      50% { clip: rect(10px,9999px,80px,0); }
+    }
+    @keyframes glitch2 {
+      0%,100% { clip: rect(60px,9999px,80px,0); transform: translate(-2px); }
+      50% { clip: rect(20px,9999px,60px,0); transform: translate(2px); }
+    }
+
+    /* Mobile nav drawer */
+    .mobile-nav {
+      display: none;
+      position: fixed; top: 70px; left: 0; right: 0;
+      background: rgba(5,10,20,.97);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0,212,255,.15);
+      padding: 20px 5%;
+      z-index: 999;
+      flex-direction: column; gap: 4px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      color: var(--dim);
+      text-decoration: none;
+      font-family: var(--ff-sub);
+      font-size: .9rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      transition: color .2s;
+    }
+    .mobile-nav a:hover { color: var(--electric); }
+
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media (max-width: 1024px) {
+      .why-grid { grid-template-columns: repeat(2,1fr); }
+      .expertise-cards { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .hero-inner, .about-grid, .expertise-layout, .mission-grid { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .why-grid { grid-template-columns: 1fr; }
+      .about-images { height: 280px; }
+      .mission-image { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-links { grid-template-columns: 1fr; }
+      nav { display: none; }
+      .hamburger { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Cursor Glow -->
+<div id="cursor-glow"></div>
+<!-- Particles Canvas -->
+<canvas id="particles"></canvas>
+
+<!-- ═══════════════════════════════════════ HEADER -->
+<header id="top">
+  <a href="#hero" class="logo">
+    <img src="Patrick Kennelly Logo.jpg" alt="Patrick Kennelly Logo" />
+    <span class="logo-text">Patrick Kennelly</span>
+  </a>
+
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#why">Why Choose</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#quote">Quote</a>
+    <a href="#mission">Mission</a>
+  </nav>
+
+  <button class="hamburger" id="ham" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#hero" onclick="closeMob()">Home</a>
+  <a href="#about" onclick="closeMob()">About</a>
+  <a href="#why" onclick="closeMob()">Why Choose</a>
+  <a href="#expertise" onclick="closeMob()">Expertise</a>
+  <a href="#quote" onclick="closeMob()">Quote</a>
+  <a href="#mission" onclick="closeMob()">Mission</a>
+</div>
+
+<!-- ═══════════════════════════════════════ HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Electrical Industry Leader</div>
+      <h1 class="hero-name">
+        <a href="https://patrickkennelly.journoportfolio.com/" target="_blank" rel="noopener" style="text-decoration:none;">
+          <span>Patrick</span>
+        </a>
+        <a href="https://patkennelly.framer.website/" target="_blank" rel="noopener" style="text-decoration:none; color:var(--white);">Kennelly</a>
+      </h1>
+      <p class="hero-subtitle">Owner · Anthony G. Ferry Inc.</p>
+      <p class="hero-desc">
+        A visionary force in the electrical industry — delivering safe, reliable, and forward-thinking electrical solutions that power homes, businesses, and communities for generations to come.
+      </p>
+      <div class="hero-btns">
+        <a href="https://patrickkennelly.journoportfolio.com/" target="_blank" rel="noopener" class="btn-primary">
+          <span>View Portfolio</span>
+        </a>
+        <a href="#about" class="btn-outline">Discover More</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-img-frame">
+        <img src="1.jpg" alt="Patrick Kennelly" />
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+        <div class="hero-badge">
+          <span class="num">25+</span>
+          <span class="lbl">Years<br>Experience</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label reveal">About Patrick</div>
+    <h2 class="section-title reveal" data-text="WHO IS PATRICK KENNELLY?">Who Is <em>Patrick Kennelly?</em></h2>
+    <div class="section-divider reveal"></div>
+
+    <div class="about-grid">
+      <div class="about-images reveal">
+        <img src="2.jpg" alt="Patrick Kennelly at work" class="about-img-main" />
+        <img src="3.jpg" alt="Electrical Solutions" class="about-img-secondary" />
+        <div class="about-tag">Industry Expert</div>
+      </div>
+
+      <div class="about-text reveal">
+        <p>
+          <a href="https://sunriseinterview.com/patrick-kennelly-talks-about-reliable-electrical-solutions/" target="_blank" rel="noopener"><strong>Patrick Kennelly</strong></a> is a seasoned electrical industry professional and the proud owner of <strong>Anthony G. Ferry Inc.</strong>, a company built on trust, craftsmanship, and an unwavering commitment to delivering reliable electrical solutions. With over two decades of hands-on experience, Patrick has become a trusted name in the field — known for his technical mastery, ethical standards, and dedication to his clients.
+        </p>
+        <p>
+          Patrick's journey in the electrical industry began with a deep curiosity for how things work and a passion for building systems that last. Over the years, he has led complex residential, commercial, and industrial projects, earning a reputation as someone who not only understands the technical demands of the trade but also prioritizes the safety and satisfaction of every client he serves.
+        </p>
+        <p>
+          As featured in
+          <a href="https://www.foxinterview.com/patrick-kennelly-explains-the-importance-of-safety-in-electrical-work/" target="_blank" rel="noopener">Fox Interview</a>,
+          <a href="https://www.nairaland.com/8640186/patrick-kennelly-leads-electrical-industry" target="_blank" rel="noopener">Nairaland</a>, and
+          <a href="https://www.youtube.com/watch?v=9Z2qkAyfho4" target="_blank" rel="noopener">YouTube</a>,
+          Patrick is recognized for his thought leadership and his drive to elevate industry standards through innovation and responsibility.
+        </p>
+
+        <div class="about-stats">
+          <div class="stat-box"><span class="n">500+</span><span class="l">Projects Done</span></div>
+          <div class="stat-box"><span class="n">25+</span><span class="l">Years Exp.</span></div>
+          <div class="stat-box"><span class="n">100%</span><span class="l">Safety Record</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ WHY CHOOSE -->
+<section id="why">
+  <div class="section-inner">
+    <div class="section-label reveal">Why Choose Him</div>
+    <h2 class="section-title reveal">The <em>Patrick Kennelly</em> Difference</h2>
+    <div class="section-divider reveal"></div>
+
+    <div class="why-grid">
+      <div class="why-card reveal" style="transition-delay:.05s">
+        <div class="why-icon">⚡</div>
+        <h3>Proven Safety Standards</h3>
+        <p>Patrick Kennelly places safety above everything else. Every project — from a simple wiring upgrade to a large-scale industrial installation — is executed with rigorous attention to code compliance, risk assessment, and personnel safety protocols. His flawless safety record speaks louder than any credential and gives clients complete peace of mind knowing their property and people are protected at every stage.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:.1s">
+        <div class="why-icon">🔬</div>
+        <h3>Technical Mastery</h3>
+        <p>With deep knowledge spanning electrical design, systems integration, energy efficiency, and modern smart-building technology, <a href="https://www.nairaland.com/8683545/patrick-kennelly-brings-attention-modern" target="_blank" rel="noopener" style="color:var(--electric);text-decoration:none;">Patrick Kennelly</a> brings a rare combination of old-school craftsmanship and cutting-edge innovation. His ability to diagnose complex issues quickly and implement lasting solutions sets him far apart from the competition, saving clients both time and money on every engagement.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:.15s">
+        <div class="why-icon">🤝</div>
+        <h3>Client-First Approach</h3>
+        <p>Patrick believes that outstanding electrical work starts with genuinely listening to the client. He takes time to understand each project's unique requirements, budget, and long-term goals before recommending a solution. Transparent communication, honest pricing, and on-time delivery aren't just promises — they are the foundation of every relationship Patrick builds, ensuring clients return project after project with full confidence.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:.2s">
+        <div class="why-icon">🏆</div>
+        <h3>Industry Recognition</h3>
+        <p>Patrick's expertise has earned him recognition from leading industry publications and media outlets. Featured across multiple platforms for his thought leadership, Patrick continues to shape the conversation around safe, modern, and sustainable electrical practice. His portfolio reflects not just technical excellence, but a consistent ability to deliver beyond client expectations on residential, commercial, and infrastructure-scale projects across the region.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:.25s">
+        <div class="why-icon">🌱</div>
+        <h3>Sustainability Focus</h3>
+        <p>Patrick Kennelly is committed to building an electrically sustainable future. He actively integrates energy-efficient systems, renewable energy compatibility, and smart-grid solutions into his projects. By staying ahead of regulatory changes and embracing green technology, Patrick ensures that clients benefit from reduced operational costs, lower environmental impact, and infrastructure that's ready for the demands of tomorrow's energy landscape.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:.3s">
+        <div class="why-icon">📐</div>
+        <h3>End-to-End Solutions</h3>
+        <p>From initial consultation and system design through installation, testing, and post-project support, Patrick and his team at Anthony G. Ferry Inc. manage every aspect of the electrical lifecycle. Clients never have to juggle multiple contractors or worry about gaps in accountability. One trusted team handles the entire project — delivering a seamless, stress-free experience with impeccable attention to detail from the very first planning conversation to final sign-off.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ EXPERTISE -->
+<section id="expertise">
+  <div class="section-inner">
+    <div class="section-label reveal">Core Expertise</div>
+    <h2 class="section-title reveal">Areas of <em>Excellence</em></h2>
+    <div class="section-divider reveal"></div>
+
+    <div class="expertise-layout">
+      <div class="reveal">
+        <p style="color:var(--text);font-size:.95rem;margin-bottom:30px;line-height:1.8;">
+          <a href="https://patkennelly.framer.website/" target="_blank" rel="noopener" style="color:var(--electric);text-decoration:none;">Patrick Kennelly</a>'s expertise spans the full breadth of the electrical industry. His skills have been refined through hundreds of real-world projects, continuous professional development, and a genuine passion for the trade. Whether working on residential renovations or large commercial infrastructure, Patrick delivers with precision and professionalism.
+        </p>
+        <div class="skill-bars">
+          <div class="skill-row">
+            <div class="skill-header"><span>Electrical System Design</span><span>97%</span></div>
+            <div class="skill-track"><div class="skill-fill" data-w="97"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-header"><span>Safety & Code Compliance</span><span>99%</span></div>
+            <div class="skill-track"><div class="skill-fill" data-w="99"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-header"><span>Commercial & Industrial</span><span>93%</span></div>
+            <div class="skill-track"><div class="skill-fill" data-w="93"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-header"><span>Renewable Energy Integration</span><span>88%</span></div>
+            <div class="skill-track"><div class="skill-fill" data-w="88"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-header"><span>Smart Building Technology</span><span>91%</span></div>
+            <div class="skill-track"><div class="skill-fill" data-w="91"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-header"><span>Project Management</span><span>95%</span></div>
+            <div class="skill-track"><div class="skill-fill" data-w="95"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="expertise-cards reveal" style="transition-delay:.15s">
+        <div class="exp-card">
+          <div class="icon">🏠</div>
+          <h4>Residential</h4>
+          <p>Complete home wiring, panel upgrades, EV charger installations, and smart home automation systems tailored to modern living.</p>
+        </div>
+        <div class="exp-card">
+          <div class="icon">🏢</div>
+          <h4>Commercial</h4>
+          <p>Office buildings, retail spaces, and hospitality venues — designed for efficiency, reliability, and code compliance from day one.</p>
+        </div>
+        <div class="exp-card">
+          <div class="icon">🏭</div>
+          <h4>Industrial</h4>
+          <p>Heavy-duty power systems, motor control centres, and plant-wide electrical infrastructure built to perform under demanding conditions.</p>
+        </div>
+        <div class="exp-card">
+          <div class="icon">☀️</div>
+          <h4>Solar & Renewable</h4>
+          <p>Grid-tied and off-grid solar integration, battery backup systems, and energy auditing for a cleaner, lower-cost energy future.</p>
+        </div>
+        <div class="exp-card">
+          <div class="icon">🔒</div>
+          <h4>Safety Systems</h4>
+          <p>Fire alarm wiring, emergency lighting, surge protection, and GFCI systems to keep occupants and properties fully protected.</p>
+        </div>
+        <div class="exp-card">
+          <div class="icon">📡</div>
+          <h4>Data & Low Voltage</h4>
+          <p>Structured cabling, network infrastructure, AV systems, and access control — the intelligent backbone of modern facilities.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ QUOTE -->
+<section id="quote">
+  <div class="quote-content">
+    <span class="quote-mark reveal">"</span>
+    <blockquote class="reveal">
+      Electricity is not just a utility — it is the <em>lifeblood</em> of modern civilization. Every wire we run, every circuit we protect, every system we build carries a responsibility not just to the client, but to <em>every person</em> who will ever depend on that work.
+    </blockquote>
+    <p class="quote-author reveal">— Patrick Kennelly, Owner · Anthony G. Ferry Inc.</p>
+    <div style="margin-top:36px;" class="reveal">
+      <a href="https://www.youtube.com/watch?v=9Z2qkAyfho4" target="_blank" rel="noopener" class="btn-primary">
+        <span>▶ Watch His Interview</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ MISSION & VISION -->
+<section id="mission">
+  <div class="section-inner">
+    <div class="section-label reveal">Purpose & Direction</div>
+    <h2 class="section-title reveal">Mission <em>&</em> Vision</h2>
+    <div class="section-divider reveal"></div>
+
+    <div class="mission-grid">
+      <div class="mv-panel mission-p reveal">
+        <span class="mv-icon">🎯</span>
+        <h3>Our Mission</h3>
+        <p>
+          At Anthony G. Ferry Inc., the mission is clear: to deliver electrical solutions that are safe, dependable, and built to last. <a href="https://sunriseinterview.com/patrick-kennelly-talks-about-reliable-electrical-solutions/" target="_blank" rel="noopener" style="color:var(--electric);text-decoration:none;">Patrick Kennelly</a> drives every project with an uncompromising dedication to quality workmanship, transparent communication, and client satisfaction. Every team member is trained to uphold these standards — because outstanding results require outstanding effort at every stage.
+        </p>
+        <ul>
+          <li>Zero-compromise safety on every project</li>
+          <li>Transparent, honest client communication</li>
+          <li>Code-compliant, future-ready installations</li>
+          <li>Continuous team training and development</li>
+          <li>On-time, on-budget project delivery</li>
+        </ul>
+      </div>
+
+      <div class="mv-panel vision-p reveal" style="transition-delay:.15s">
+        <span class="mv-icon">🔭</span>
+        <h3>Our Vision</h3>
+        <p>
+          Patrick Kennelly envisions a future where every building — residential, commercial, and industrial — operates on safe, efficient, and sustainable electrical infrastructure. By embracing emerging technologies such as smart grid systems, EV charging networks, and renewable energy integration, the vision is to be the region's most trusted partner in building that future, one circuit at a time.
+        </p>
+        <ul>
+          <li>Lead the shift toward sustainable electrical infrastructure</li>
+          <li>Champion smart technology adoption in every sector</li>
+          <li>Inspire a new generation of skilled electrical professionals</li>
+          <li>Set industry benchmarks for safety and innovation</li>
+          <li>Build a community powered by clean, reliable energy</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mission-image reveal" style="transition-delay:.2s">
+      <img src="4.jpg" alt="Patrick Kennelly Project" />
+      <img src="5.jpg" alt="Electrical Work" />
+      <img src="6.jpg" alt="Industry Leadership" />
+    </div>
+
+    <div style="text-align:center;margin-top:60px;" class="reveal">
+      <p style="color:var(--dim);font-size:.9rem;max-width:680px;margin:0 auto 30px;">
+        As highlighted in industry coverage across
+        <a href="https://www.nairaland.com/8683545/patrick-kennelly-brings-attention-modern" target="_blank" rel="noopener" style="color:var(--electric);text-decoration:none;">Nairaland</a> and
+        <a href="https://www.foxinterview.com/patrick-kennelly-explains-the-importance-of-safety-in-electrical-work/" target="_blank" rel="noopener" style="color:var(--electric);text-decoration:none;">Fox Interview</a>,
+        Patrick continues to be a guiding voice for responsible, modern electrical practice in the United States and beyond.
+      </p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="https://patrickkennelly.journoportfolio.com/" target="_blank" rel="noopener" class="btn-primary"><span>View Full Portfolio</span></a>
+        <a href="https://patkennelly.framer.website/" target="_blank" rel="noopener" class="btn-outline">Framer Website</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#hero" class="logo">
+          <img src="Patrick Kennelly Logo.jpg" alt="Patrick Kennelly Logo" />
+          <span class="logo-text">Patrick Kennelly</span>
+        </a>
+        <p>Owner of Anthony G. Ferry Inc. — Delivering safe, innovative, and reliable electrical solutions with integrity and precision.</p>
+        <div class="footer-social" style="margin-top:20px;">
+          <a href="https://www.linkedin.com/in/patrick-kennelly-554aa465/" target="_blank" rel="noopener" class="social-btn" title="LinkedIn">in</a>
+          <a href="https://www.facebook.com/patrickkennelly.us/" target="_blank" rel="noopener" class="social-btn" title="Facebook">f</a>
+          <a href="https://x.com/pat__kennelly" target="_blank" rel="noopener" class="social-btn" title="X / Twitter">𝕏</a>
+          <a href="https://www.pinterest.com/patkennelly/" target="_blank" rel="noopener" class="social-btn" title="Pinterest">P</a>
+          <a href="https://www.reddit.com/user/Patrick_Kennelly/" target="_blank" rel="noopener" class="social-btn" title="Reddit">R</a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <div class="footer-nav">
+            <a href="#hero">Home</a>
+            <a href="#about">About</a>
+            <a href="#why">Why Choose</a>
+            <a href="#expertise">Expertise</a>
+            <a href="#quote">Quote</a>
+            <a href="#mission">Mission</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Featured In</h4>
+          <a href="https://sunriseinterview.com/patrick-kennelly-talks-about-reliable-electrical-solutions/" target="_blank" rel="noopener">Sunrise Interview</a>
+          <a href="https://www.foxinterview.com/patrick-kennelly-explains-the-importance-of-safety-in-electrical-work/" target="_blank" rel="noopener">Fox Interview</a>
+          <a href="https://www.nairaland.com/8640186/patrick-kennelly-leads-electrical-industry" target="_blank" rel="noopener">Nairaland</a>
+          <a href="https://www.youtube.com/watch?v=9Z2qkAyfho4" target="_blank" rel="noopener">YouTube Interview</a>
+          <a href="https://patrickkennelly.journoportfolio.com/" target="_blank" rel="noopener">Journal Portfolio</a>
+          <a href="https://patkennelly.framer.website/" target="_blank" rel="noopener">Framer Website</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2024 <a href="https://patrickkennelly.journoportfolio.com/" target="_blank" rel="noopener">Patrick Kennelly</a> · Anthony G. Ferry Inc. All rights reserved.</p>
+      <p>Built with <span style="color:var(--electric)">⚡</span> for the future of electrical excellence.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════ SCRIPTS -->
+<script>
+/* ── Cursor Glow ─────────────────────────────── */
+const glow = document.getElementById('cursor-glow');
+document.addEventListener('mousemove', e => {
+  glow.style.left = e.clientX + 'px';
+  glow.style.top  = e.clientY + 'px';
+});
+
+/* ── Particles ───────────────────────────────── */
+(function(){
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  let W, H, pts = [];
+  const NUM = 80;
+
+  function resize(){ W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
+  resize(); window.addEventListener('resize', resize);
+
+  for(let i=0;i<NUM;i++) pts.push({
+    x: Math.random()*2000, y: Math.random()*1200,
+    vx:(Math.random()-.5)*.3, vy:(Math.random()-.5)*.3,
+    r: Math.random()*1.5+.4
+  });
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    pts.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0) p.x=W; if(p.x>W) p.x=0;
+      if(p.y<0) p.y=H; if(p.y>H) p.y=0;
+
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle='rgba(0,212,255,.45)';
+      ctx.fill();
+
+      pts.forEach(q=>{
+        const dx=p.x-q.x, dy=p.y-q.y, d=Math.sqrt(dx*dx+dy*dy);
+        if(d<120){
+          ctx.beginPath();
+          ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y);
+          ctx.strokeStyle=`rgba(0,212,255,${.12*(1-d/120)})`;
+          ctx.lineWidth=.5;
+          ctx.stroke();
+        }
+      });
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ── Scroll Reveal ───────────────────────────── */
+const revealEls = document.querySelectorAll('.reveal, .section-label, .section-title, .section-divider');
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      // Skill bars
+      e.target.querySelectorAll && e.target.querySelectorAll('.skill-fill').forEach(b=>{
+        b.style.width = b.dataset.w + '%';
+      });
+    }
+  });
+},{threshold:.12});
+revealEls.forEach(el=>observer.observe(el));
+
+/* Skill bars inside expertise section */
+const expSection = document.getElementById('expertise');
+const expObs = new IntersectionObserver((entries)=>{
+  if(entries[0].isIntersecting){
+    document.querySelectorAll('.skill-fill').forEach(b=>{ b.style.width = b.dataset.w+'%'; });
+  }
+},{threshold:.2});
+expObs.observe(expSection);
+
+/* ── Header Scroll Style ─────────────────────── */
+const header = document.getElementById('top');
+window.addEventListener('scroll',()=>{
+  header.style.background = scrollY>50
+    ? 'rgba(5,10,20,.97)'
+    : 'rgba(5,10,20,.85)';
+});
+
+/* ── Hamburger ───────────────────────────────── */
+const ham = document.getElementById('ham');
+const mob = document.getElementById('mobile-nav');
+ham.addEventListener('click',()=>mob.classList.toggle('open'));
+function closeMob(){ mob.classList.remove('open'); }
+
+/* ── Glitch data-text ────────────────────────── */
+document.querySelectorAll('.section-title').forEach(el=>{
+  el.setAttribute('data-text', el.textContent);
+  el.classList.add('glitch-hover');
+});
+
+/* ── Typing effect on hero name ──────────────── */
+(function(){
+  const words = ['Innovator','Expert','Leader','Visionary'];
+  let wi=0, ci=0, del=false;
+  const el = document.querySelector('.hero-eyebrow');
+  const base = 'Electrical Industry ';
+  function tick(){
+    const w = words[wi];
+    if(!del){ ci++; } else { ci--; }
+    el.childNodes[el.childNodes.length-1]
+      ? (el.childNodes[el.childNodes.length-1].textContent = base + w.slice(0,ci))
+      : null;
+    el.textContent = base + w.slice(0,ci);
+    if(!del && ci===w.length){ setTimeout(()=>{ del=true; }, 1400); }
+    if(del && ci===0){ del=false; wi=(wi+1)%words.length; }
+    setTimeout(tick, del?60:110);
+  }
+  tick();
+})();
+</script>
+</body>
+</html>
